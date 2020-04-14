@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		 http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+		 http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		 http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+		
+		
+		<bean id="emp1" class="service.Emp">
+			<constructor-arg index="0" value="1001"/>
+			<constructor-arg index="1" value="rom"/>
+			<constructor-arg index="2" value="35000"/>
+			<constructor-arg index="3" value="22-08-2017"/>
+		</bean>
+		
+		<bean id="emp2" class="service.Emp">
+			<constructor-arg index="0" value="1002"/>
+			<constructor-arg index="1" value="tom"/>
+			<constructor-arg index="2" value="45000"/>
+			<constructor-arg index="3" value="12-04-2018"/>
+		</bean>
+		
+		<bean id="emp3" class="service.Emp">
+			<constructor-arg index="0" value="1003"/>
+			<constructor-arg index="1" value="kishor"/>
+			<constructor-arg index="2" value="23000"/>
+			<constructor-arg index="3" value="22-08-2019"/>
+		</bean>
+		
+		
+		<bean id="myser" class="service.EmpSerImpl">
+			<property name="doj" value="01-01-2018"></property>
+			<property name="employees">
+				<set>
+				      <ref bean="emp1"/>
+				      <ref bean="emp2"/>
+				      <ref bean="emp3"/>
+				</set>
+			</property>
+		</bean>
+	
+	<bean id="myEditor"
+	class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+	<property name="customEditors">
+		<map>
+			<entry key="java.time.LocalDate" value="service.LdtEditor"></entry>
+		</map>
+	</property>
+	</bean>		
+</beans>

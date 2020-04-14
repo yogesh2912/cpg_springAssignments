@@ -1,0 +1,55 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+  <beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context 
+  http://www.springframework.org/schema/context/spring-context.xsd">
+  
+<context:component-scan base-package="com.cg.second"></context:component-scan>
+<context:annotation-config/> 
+
+ <bean id="address" class="com.cg.second.Address">
+    <constructor-arg  value="Punjab"/>
+    <constructor-arg value="Pagwara"/>
+    <constructor-arg value="123"/>
+</bean>
+ 
+<bean id="employee" class="com.cg.second.Employee">
+    <constructor-arg value="1"/>
+    <constructor-arg value="Suraj"/>
+   <!--  <constructor-arg ref="address"/> -->
+</bean>
+
+
+  <bean id = "countries" class = "com.cg.set.CollectionSample">
+   <property name="country">
+          <set>
+            <value>India</value>
+            <value>Japan</value>
+            <value>India</value>
+          </set>
+      </property>
+      <property name="myList">
+         <list>
+	       <value>List Value A</value>
+	       <value>List Value B</value>
+	  </list>
+      </property> 
+       <property name="myMap">
+	 <map>
+            <entry key="0" value="Map Value A"/>           
+            <entry key="1" value="Map Value B"/>
+         </map>
+      </property>
+      <property name="myProp">
+	 <props>
+	       <prop key="propKeyA">Prop Value A</prop>
+	       <prop key="propKeyB">Prop Value B</prop>
+	 </props>
+      </property>   
+      
+   </bean>
+</beans>

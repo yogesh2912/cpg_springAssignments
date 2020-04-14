@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 
+
+    <!-- property injection -->
+    <bean id = "maruthi" class = "com.cg.first.Maruthi">
+   <property name="price" value="20000"></property>
+   <property name="model" value="A1"></property>
+   </bean>
+   <!-- constructor Injection -->
+   <bean id="suzuki" class="com.cg.first.Suzuki">
+    <constructor-arg value="700000"/>
+    <constructor-arg value="A2"/>
+    </bean>
+    <!-- constructor injection one class to other -->
+ <bean id="address" class="com.cg.second.Address">
+    <constructor-arg  value="Andhra"/>
+    <constructor-arg value="Narsapur"/>
+    <constructor-arg value="123"/>
+</bean>
+ 
+<bean id="employee" class="com.cg.second.Employee">
+    <constructor-arg value="1"/>
+    <constructor-arg value="Harsha"/>
+    <constructor-arg ref="address"/>
+</bean>
+ 
+
+</beans>
